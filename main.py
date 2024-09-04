@@ -1,3 +1,7 @@
+def getBookText(path):
+    with open("books/frankenstein.txt") as f:
+        file_content = f.read()
+    return file_content
 
 def numberOfCharacter(text):
     characters = {}
@@ -53,15 +57,12 @@ def getReport(num_words, char_list):
     return report
 
 def main():
-
-    with open("books/frankenstein.txt") as f:
-        file_content = f.read()
-    
+    book_path = "books/frankenstein.txt"
+    file_content = getBookText(book_path)
     num_words = numberOfWord(file_content)
     char_dict = numberOfCharacter(file_content)
     char_dict = removeNonAlpha(char_dict)
     char_list = convertToList(char_dict)
-    
     
     report = getReport(num_words, char_list)
     print(report)
